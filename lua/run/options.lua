@@ -2,23 +2,8 @@
 local Util = require "util"
 local c = wez.configuration
 
---- Use this snippet to choose based on system color mode
---
--- local theme = {
---   Dark = "Catppuccin Macchiato",
---   Light = "Catppuccin Latte",
--- }
--- theme.DarkHighContrast = theme.Dark
--- theme.LightHighContrast = theme.Light
---
--- c.color_scheme = theme[wez.gui.get_appareance()]
-c.color_scheme = "Catppuccin Macchiato"
 c.font = wez.font "JetBrains Mono"
-
--- processes
 c.prefer_to_spawn_tabs = true
-
--- appareance
 c.use_fancy_tab_bar = false
 c.tab_bar_at_bottom = true
 c.window_padding = {
@@ -27,6 +12,16 @@ c.window_padding = {
   top = 0,
   bottom = 0,
 }
+
+-- TODO: Move this to a module for managing backgrounds and colors
+local schema = {
+  Dark = "Catppuccin Macchiato",
+  Light = "Catppuccin Latte",
+}
+schema.DarkHighContrast = schema.Dark
+schema.LightHighContrast = schema.Light
+
+c.color_scheme = schema[wez.gui.get_appearance()]
 c.background = {
   {
     source = {
