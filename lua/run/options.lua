@@ -34,7 +34,7 @@ c.background = {
   {
     source = {
       File = {
-        path = Util.asset "wezterm-bg.gif",
+        path = Util.asset "toon-link.gif",
         speed = 0.2,
       },
     },
