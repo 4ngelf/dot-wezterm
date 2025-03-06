@@ -14,10 +14,10 @@ do
   local moddir = table.concat({ wez.config_dir, "lua", sub_tok, "init.lua" }, dir_sep)
 
   local new_path_parts = {}
-  if not package.path:match (modfile) then
+  if not package.path:match(modfile) then
     table.insert(new_path_parts, modfile)
   end
-  if not package.path:match (moddir) then
+  if not package.path:match(moddir) then
     table.insert(new_path_parts, moddir)
   end
   table.insert(new_path_parts, package.path)
