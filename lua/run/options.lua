@@ -1,5 +1,5 @@
 -- Set configuration options
-local Util = require "util"
+local util = require "util"
 local c = wez.configuration
 
 c.font = wez.font "JetBrains Mono"
@@ -14,6 +14,14 @@ c.window_padding = {
 }
 
 -- TODO: Move this to a module for managing backgrounds and colors
+local function get_appearance()
+  if wez.gui then
+    return wez.gui.get_appearance()
+  else
+    return "Dark"
+  end
+end
+
 local schema = {
   Dark = "Catppuccin Macchiato",
   Light = "Catppuccin Latte",
@@ -21,7 +29,7 @@ local schema = {
 schema.DarkHighContrast = schema.Dark
 schema.LightHighContrast = schema.Light
 
-c.color_scheme = schema[wez.gui.get_appearance()]
+c.color_scheme = schema[get_appearance()]
 c.background = {
   {
     source = {
@@ -34,7 +42,7 @@ c.background = {
   {
     source = {
       File = {
-        path = Util.asset "toon-link.gif",
+        path = util.asset "toon-link.gif",
         speed = 0.2,
       },
     },
