@@ -2,16 +2,12 @@
 local util = require "util"
 local c = wez.configuration
 
+c.enable_kitty_keyboard = true
 c.font = wez.font "JetBrains Mono"
 c.prefer_to_spawn_tabs = true
-c.use_fancy_tab_bar = false
 c.tab_bar_at_bottom = true
-c.window_padding = {
-  left = "1cell",
-  right = 5,
-  top = 0,
-  bottom = 0,
-}
+c.use_fancy_tab_bar = false
+c.window_padding = { left = "1cell", right = 5, top = 0, bottom = 0 }
 
 -- TODO: Move this to a module for managing backgrounds and colors
 local function get_appearance()
