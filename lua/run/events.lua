@@ -1,6 +1,7 @@
 -- Set custom event handlers
 local mux = wez.mux
 
+-- Start wezterm on maximized window
 local first_gui_startup = true
 wez.on("gui-startup", function(cmd)
   if first_gui_startup then
