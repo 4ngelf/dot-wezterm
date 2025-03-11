@@ -13,7 +13,7 @@ do
   local modfile = table.concat({ wez.config_dir, "lua", sub_tok .. ".lua" }, dir_sep)
   local moddir = table.concat({ wez.config_dir, "lua", sub_tok, "init.lua" }, dir_sep)
 
-  package.path = table.concat({modfile, moddir, package.path}, path_sep)
+  package.path = table.concat({ modfile, moddir, package.path }, path_sep)
 end
 
 wez.configuration = wez.config_builder()
@@ -26,15 +26,18 @@ require "run.etc"
 
 -- Local machine specific configuration
 do
-  local local_config = ".wezterm.local.lua"
-  -- TODO: Replace with a function from a path manipulation lib
-  local sep = package.config:match "(.)"
+  local local_config = wez.config_dir .. "/.wezterm.local.lua"
 
-  local f, err = loadfile(wez.config_dir .. sep .. local_config)
-  if f then
-    f()
-  else
-    wez.log_error(("%s: %s"):format(local_config, err))
+  local file = io.open(local_config)
+  if file then
+    local run_local_config, err = load(file:read "a")
+    file:close()
+
+    if run_local_config then
+      run_local_config()
+    else
+      wez.log_error(local_config, ":", err)
+    end
   end
 end
 
