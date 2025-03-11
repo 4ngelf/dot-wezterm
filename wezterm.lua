@@ -13,16 +13,7 @@ do
   local modfile = table.concat({ wez.config_dir, "lua", sub_tok .. ".lua" }, dir_sep)
   local moddir = table.concat({ wez.config_dir, "lua", sub_tok, "init.lua" }, dir_sep)
 
-  local new_path_parts = {}
-  if not package.path:match(modfile) then
-    table.insert(new_path_parts, modfile)
-  end
-  if not package.path:match(moddir) then
-    table.insert(new_path_parts, moddir)
-  end
-  table.insert(new_path_parts, package.path)
-
-  package.path = table.concat(new_path_parts, path_sep)
+  package.path = table.concat({modfile, moddir, package.path}, path_sep)
 end
 
 wez.configuration = wez.config_builder()
@@ -35,7 +26,7 @@ require "run.events"
 
 -- Local machine specific configuration
 do
-  local local_config = ".local-machine-wezterm-config.lua"
+  local local_config = ".wezterm.local.lua"
   -- TODO: Replace with a function from a path manipulation lib
   local sep = package.config:match "(.)"
 
