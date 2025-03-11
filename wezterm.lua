@@ -20,9 +20,9 @@ wez.configuration = wez.config_builder()
 
 -- Load modules with side effects on `wez.configuration`
 require "run.plugins"
-require "run.options"
-require "run.keys"
 require "run.events"
+require "run.keys"
+require "run.etc"
 
 -- Local machine specific configuration
 do
