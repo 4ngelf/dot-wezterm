@@ -6,5 +6,5 @@ local plugin_list = {
 for _, plugin in ipairs(plugin_list) do
   local link = plugin[1]
   local plugin_config = plugin[2]
-  wez.plugin.require(link).apply_to_config(wez.configuration, plugin_config)
+  wez.plugin.require(link).apply_to_config(this.configuration, plugin_config)
 end
