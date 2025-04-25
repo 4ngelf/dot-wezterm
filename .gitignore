@@ -1,2 +1,3 @@
 # Local machine specific configuration
+.local-machine-wezterm-config.lua
 .wezterm.local.lua

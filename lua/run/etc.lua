@@ -1,5 +1,6 @@
 -- Set configuration options
 local util = require "util"
+
 local c = wez.configuration
 
 c.enable_kitty_keyboard = true
