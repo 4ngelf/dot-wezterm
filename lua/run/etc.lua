@@ -1,7 +1,5 @@
 -- Set configuration options
-local util = require "util"
-
-local c = wez.configuration
+local c = this.configuration
 
 c.enable_kitty_keyboard = true
 c.font = wez.font "JetBrains Mono"
@@ -39,7 +37,7 @@ c.background = {
   {
     source = {
       File = {
-        path = util.asset "toon-link.gif",
+        path = this.asset "toon-link.gif",
         speed = 0.2,
       },
     },

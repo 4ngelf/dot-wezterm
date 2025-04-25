@@ -74,7 +74,7 @@ package.path = table.concat(package_path_table, package_config[2])
 -- Load configuration
 --
 
-wez.configuration = wez.config_builder()
+_G.this = require "this"
 
 require "run.plugins"
 require "run.events"
@@ -83,4 +83,4 @@ require "run.etc"
 
 try_load_local_configuration()
 
-return wez.configuration
+return this.configuration
