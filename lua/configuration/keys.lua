@@ -1,6 +1,6 @@
 --- Set keybindings
 local act = wez.action
-local c = this.configuration
+local c = configuration
 
 c.leader = {
   key = " ",
